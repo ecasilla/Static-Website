@@ -79,7 +79,7 @@ grunt.initConfig({
     },
 
   copy: {
-    main: {
+    vendor_fonts: {
       files: [
         // includes files within path
         {expand: true, src: ['app/fonts/*'], flatten: true, dest: 'generated/fonts', filter: 'isFile'},
@@ -117,6 +117,10 @@ grunt.initConfig({
       scripts:{
         files: ['app/scripts/*.js'],
         tasks:['uglify']
+    },
+    copy:{
+      files:  ['app/vendor/*','app/fonts/*'],
+      tasks:['copy']
     }
   },
 
@@ -142,6 +146,6 @@ grunt.loadNpmTasks('grunt-contrib-copy');
 
 grunt.registerTask('default',['concurrent:target1'])
 grunt.registerTask('e2e',['concurrent:target2'])
-grunt.registerTask('prod',['jshint','imagemin','uglify','less:production','jade'])
+grunt.registerTask('prod',['jshint','imagemin','uglify','less:production','jade','copy'])
 
 }//grunt exports
