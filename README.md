@@ -1,4 +1,4 @@
-#Directv Static Website Framework
+#Static Website Framework
 
 ##Dependencies && Tools Used
 Node
@@ -13,12 +13,16 @@ Testem
 
 #Setup
 `
-npm cache clean
-sudo npm install -g phantomjs
-sudo npm install -g grunt-cli
-sudo npm install -g testem
-sudo npm install
-`
+npm cache clean `
+
+`sudo npm install -g phantomjs`
+
+`sudo npm install -g grunt-cli`
+
+`sudo npm install -g testem`
+
+`sudo npm install`
+
 
 
 #Folder Strcuture
