@@ -21,6 +21,6 @@ describe("app", function() {
   });
 
   it("should divide two numbers", function() {
-
+    expect(APP.divide(10,5)).toEqual(2);
   });
 });

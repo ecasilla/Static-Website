@@ -7,7 +7,9 @@ window.APP = {
   },
   multiply: function(x,y) {
     return x * y;
+  },
+  divide: function(x,y) {
+    return x/y
   }
 };
 
-var hello = null;
