@@ -5,41 +5,10 @@ grunt.initConfig({
   pkg: grunt.file.readJSON('package.json'),
 
   jshint:{
-   files:['app/scripts/*.js','tests/**/*.js'],
-   globals:{
-    jQuery: true,
-    console: true,
-    module: true,
-    beforeEach: true,
-    AfterEach: true,
-    confirm: true,
-    context: true,
-    describe: true,
-    expect: true,
-    it: true,
-    spyOn: true,
-    spyOnEvent: true,
-    waitsFor: true,
-    xdescribe: true
-   },
+   files:['app/scripts/*.js','tests/unit/*.js','tests/intergration/*.js'],
    options: {
-    curly : true,
-    eqeqeq : true,
-    immed : true,
-    latedef : true,
-    newcap : true,
-    noarg : true,
-    sub : true,
-    undef : true,
-    boss : true,
-    eqnull : true,
-    unused : true,
-    camelcase : true,
-    onevar : true,
-    forin : true,
-    browser : true,
-    jquery : true
-   }
+      reporter: require('jshint-stylish')
+    }
   }, //jshint
 
   uglify:{
@@ -66,6 +35,34 @@ grunt.initConfig({
       }
     },
   },
+  imagemin: {
+      png: {
+        options:{
+          optimizationLevel:7
+        },
+        files:[{
+        expand: true,
+        cwd: 'app/images/',
+        src: ['**/*.png'],
+        dest:'generated/images',
+        ext: '.png'
+        }]
+      },
+      jpg:{
+      options:{
+        porgressive:true,
+        },
+        files:[{
+        expand:true,
+        cwd: 'app/',
+        src:'app/images/**/.jpg',
+        dest:'generated/images',
+        ext: '.jpg'
+        }]
+      }
+    },
+
+
   casperjs: {
     options: {
       async : {
@@ -76,12 +73,17 @@ grunt.initConfig({
   },
 
   watch:{
-    css:{
-      files:'app/styles/*.less',
-      tasks: ['less'],
       options:{
         livereload:true,
       },
+    css:{
+      files:'app/styles/*.less',
+      tasks: ['less'],
+
+      jshint:{
+        files:['app/scripts/*.js','tests/unit/*.js','tests/intergration/*.js'],
+        tasks: ['jshint']
+      }
     }
   },
 
@@ -101,8 +103,10 @@ grunt.loadNpmTasks('grunt-concurrent');
 grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-less');
+grunt.loadNpmTasks('grunt-contrib-imagemin');
 
 grunt.registerTask('default',['concurrent:target1'])
 grunt.registerTask('e2e',['concurrent:target2'])
+grunt.registerTask('prod',['imagemin'])
 
 }//grunt exports

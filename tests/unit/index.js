@@ -6,13 +6,17 @@ describe("app", function() {
     expect(APP).toBeDefined();
   });
   it("should have a property called add", function() {
-    expect(APP.add).toBeTruthy()
+    expect(APP.add).toBeTruthy();
   });
   it("should add two numbers", function() {
-    expect(APP.add(1,3)).toEqual(4)
+    expect(APP.add(1,3)).toEqual(4);
   });
 
   it("should subtract two numbers", function() {
-    expect(APP.subtract(3,1)).toEqual(2)
+    expect(APP.subtract(3,1)).toEqual(2);
+  });
+
+  it("should mutiply", function() {
+    expect(APP.multiply(2,2)).toEqual(4)
   });
 });

@@ -4,13 +4,13 @@ var url = 'file:///Users/502190/dev/grunt/dtvframework/app/views/index.html';
 
 //Dump log messages
 casper.on('remote.message', function(message) {
-  this.echo('Log: ' + message)
+  this.echo('Log: ' + message);
 });
 
 
 //Dump uncaught errors
 casper.on('page.error', function(msg,trace) {
-  this.echo('Error ' + msg + 'ERROR' + trace)
+  this.echo('Error ' + msg + 'ERROR' + trace);
 });
 
 //This works in async mode in order for casper to know how many
@@ -19,11 +19,11 @@ casper.on('page.error', function(msg,trace) {
 casper.test.begin('Server is working and showing an index page' , 1, function(test) {
   casper.start(url, function() {
     test.assertHttpStatus(200);
-    test.assertTitle('index', 'Your index page title :)')
+    test.assertTitle('index', 'Your index page title :)');
   });
 
 //this gets called once all the specs are compelted
   casper.run(function() {
-    test.done()
+    test.done();
   });
-})
+});
