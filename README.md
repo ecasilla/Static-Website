@@ -28,21 +28,24 @@ npm cache clean `
 #Folder Strcuture
 Please copy the contents of this repo into a folder with your project name.
 
+
 Project --root
-  App
-  fonts --DTV fonts
-  images --images to be minified
-  scripts --JS source
-  styles --less
-  vendor -- bower_components/random .js librarys
-  views --jade templates
+
+* App
+  *  fonts --Custom fonts
+  *  images --images to be minified
+  *  scripts --JS source
+  *  styles --less
+  *  vendor -- bower_components/random .js librarys
+  *  views --jade templates
 
 
-Tests
-  fixtures --html fixtures
-  helpers --any test helper libs
-  intergration --casperJS and broswer testing
-  unit --all unit tests for your scripts files
+
+* Tests
+  * fixtures --html fixtures
+  * helpers --any test helper libs
+  * intergration --casperJS and broswer testing
+  * unit --all unit tests for your scripts files
 
 ##Testem
 [Testem-repo](https://github.com/airportyh/testem)
