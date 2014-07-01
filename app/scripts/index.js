@@ -10,6 +10,4 @@ window.APP = {
   }
 };
 
-var add_number = 1;
-
-$(document).ready(APP)
+var hello = null;

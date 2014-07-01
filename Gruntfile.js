@@ -41,15 +41,6 @@ grunt.initConfig({
     },
 
   less: {
-    development: {
-      options: {
-        paths: ["./app/styles/*.less"],
-        cleancss: true
-      },
-      files: {
-        "./app/styles/master.css": "./app/styles/*.less"
-      }
-    },
     production:{
       options:{
         paths: ["./app/styles/*.less"],
@@ -87,6 +78,16 @@ grunt.initConfig({
       }
     },
 
+  copy: {
+    main: {
+      files: [
+        // includes files within path
+        {expand: true, src: ['app/fonts/*'], flatten: true, dest: 'generated/fonts', filter: 'isFile'},
+        {expand: true, src: ['app/vendor/*'], flatten: true, dest: 'generated/vendor', filter: 'isFile'}
+      ]
+    }
+  },
+
 
   casperjs: {
     options: {
@@ -108,11 +109,19 @@ grunt.initConfig({
      jshint:{
         files:['app/scripts/*.js','tests/unit/*.js','tests/intergration/*.js'],
         tasks: ['jshint']
-      }
+      },
+      jade:{
+        files: ['app/views/*.jade'],
+        tasks: ['jade']
+      },
+      scripts:{
+        files: ['app/scripts/*.js'],
+        tasks:['uglify']
+    }
   },
 
   concurrent: {
-    target1: ['watch'],
+    target1: ['watch','copy'],
     target2: ['casperjs'],
     options:{
       logConcurrentOutput:true
@@ -129,6 +138,7 @@ grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-less');
 grunt.loadNpmTasks('grunt-contrib-jade');
 grunt.loadNpmTasks('grunt-contrib-imagemin');
+grunt.loadNpmTasks('grunt-contrib-copy');
 
 grunt.registerTask('default',['concurrent:target1'])
 grunt.registerTask('e2e',['concurrent:target2'])
