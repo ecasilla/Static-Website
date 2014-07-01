@@ -16,7 +16,11 @@ describe("app", function() {
     expect(APP.subtract(3,1)).toEqual(2);
   });
 
-  it("should mutiply", function() {
-    expect(APP.multiply(2,2)).toEqual(4)
+  it("should mutiply two numbers", function() {
+    expect(APP.multiply(2,2)).toEqual(4);
+  });
+
+  it("should divide two numbers", function() {
+
   });
 });

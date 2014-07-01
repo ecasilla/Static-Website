@@ -17,12 +17,28 @@ grunt.initConfig({
         drop_console : true
       }
     },
-    my_target: {
+    production: {
       files: {
         'generated/scripts/main.min.js' : ['app/scripts/*.js']
       }
     }
   },
+
+  jade: {
+        compile: {
+            options: {
+                client: false,
+                pretty: true
+            },
+            files: [ {
+              cwd: "app/views",
+              src: "**/*.jade",
+              dest: "generated/views/",
+              expand: true,
+              ext: ".html"
+            } ]
+        }
+    },
 
   less: {
     development: {
@@ -34,6 +50,15 @@ grunt.initConfig({
         "./app/styles/master.css": "./app/styles/*.less"
       }
     },
+    production:{
+      options:{
+        paths: ["./app/styles/*.less"],
+        cleancss: true
+      },
+      files:{
+        "./generated/styles/master.css": "./app/styles/*.less"
+      }
+    }
   },
   imagemin: {
       png: {
@@ -79,12 +104,11 @@ grunt.initConfig({
     css:{
       files:'app/styles/*.less',
       tasks: ['less'],
-
-      jshint:{
+    },
+     jshint:{
         files:['app/scripts/*.js','tests/unit/*.js','tests/intergration/*.js'],
         tasks: ['jshint']
       }
-    }
   },
 
   concurrent: {
@@ -103,10 +127,11 @@ grunt.loadNpmTasks('grunt-concurrent');
 grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-less');
+grunt.loadNpmTasks('grunt-contrib-jade');
 grunt.loadNpmTasks('grunt-contrib-imagemin');
 
 grunt.registerTask('default',['concurrent:target1'])
 grunt.registerTask('e2e',['concurrent:target2'])
-grunt.registerTask('prod',['imagemin'])
+grunt.registerTask('prod',['jshint','imagemin','uglify','less:production','jade'])
 
 }//grunt exports

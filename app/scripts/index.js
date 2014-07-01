@@ -6,6 +6,10 @@ window.APP = {
     return x - y;
   },
   multiply: function(x,y) {
-    return x * y
+    return x * y;
   }
 };
+
+var add_number = 1;
+
+$(document).ready(APP)
