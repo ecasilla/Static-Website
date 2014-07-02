@@ -84,7 +84,7 @@ generated/scripts/.js
 generated/views/.html
 
 ####For vendor and fonts
-It doesnt do any compliation of the files just copys them into the generated directory
+It doesn't do any compliation of the files just copys them into a generated directory
 
 This is where your static files will live
 
@@ -95,7 +95,7 @@ This task is made to run you intergration test suite using casperjs
 ###grunt prod
 `grunt prod`
 
-This task does everything the dev task does exepcts it also minifys your images
+This task does everything the dev task does and it also minifys your images
 
 ##JsHint
 
