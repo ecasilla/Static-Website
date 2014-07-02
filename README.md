@@ -12,8 +12,8 @@ Jade
 Testem
 
 #Setup
-`
-npm cache clean `
+
+`npm cache clean `
 
 `sudo npm install -g phantomjs`
 
