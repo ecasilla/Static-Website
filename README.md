@@ -52,10 +52,15 @@ Project --root
 
 In order to run the test runner for your unit test use the testem command
 
-`testem or `
+`testem --or`
+
 `testem ci --continuous intergration mode`
+
 `testem launchers --output the avaiable browsers`
-`All configuration for the test runner is in`   `testem.json`
+
+`All configuration for the test runner is in`
+
+`testem.json`
 
 
 you can copy http://localhost:7357 url and watch your test run in any browser
@@ -84,7 +89,7 @@ generated/scripts/.js
 generated/views/.html
 
 ####For vendor and fonts
-It doesn't do any compliation of the files just copys them into a generated directory
+It doesnt do any compliation of the files just copys them into the generated directory
 
 This is where your static files will live
 
@@ -95,7 +100,7 @@ This task is made to run you intergration test suite using casperjs
 ###grunt prod
 `grunt prod`
 
-This task does everything the dev task does and it also minifys your images
+This task does everything the dev task does exepcts it also minifys your images
 
 ##JsHint
 
