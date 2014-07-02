@@ -49,14 +49,13 @@ Project --root
 
 ##Testem
 [Testem-repo](https://github.com/airportyh/testem)
+
 In order to run the test runner for your unit test use the testem command
 
-  testem or
-  testem ci --continuous intergration mode
-
-  testem launchers --output the avaiable browsers
-
-  All configuration for the test runner is in   testem.json
+`testem or `
+`testem ci --continuous intergration mode`
+`testem launchers --output the avaiable browsers`
+`All configuration for the test runner is in`   `testem.json`
 
 
 you can copy http://localhost:7357 url and watch your test run in any browser
