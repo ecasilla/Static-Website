@@ -2,13 +2,21 @@
 
 ##Dependencies && Tools Used
 Node
+
 Grunt
+
 PhantomJS
+
 CasperJS
+
 JsHint
+
 Less
+
 Uglify
+
 Jade
+
 Testem
 
 #Setup
