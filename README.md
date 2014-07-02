@@ -58,7 +58,7 @@ In order to run the test runner for your unit test use the testem command
 
 `testem launchers --output the avaiable browsers`
 
-`All configuration for the test runner is in`
+All configuration for the test runner is in
 
 `testem.json`
 
