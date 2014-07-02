@@ -1,8 +1,11 @@
 {
   "launch_in_dev" : ["Chrome"],
-  "framework": "jasmine",
+  "framework": "jasmine2",
   "src_files": [
-  "app/scripts/*.js",
-  "tests/unit/*.js"
+    "app/vendor/*.js",
+    "app/scripts/*.js",
+    "tests/helpers/*.js",
+    "tests/unit/*.js"
   ]
 }
+

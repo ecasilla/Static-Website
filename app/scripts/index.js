@@ -1,4 +1,4 @@
-window.APP = {
+window.APP.index = {
   add: function (x,y) {
     return x + y;
   },
@@ -9,7 +9,7 @@ window.APP = {
     return x * y;
   },
   divide: function(x,y) {
-    return x/y
+    return x / y;
   }
 };
 
