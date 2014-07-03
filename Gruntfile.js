@@ -113,14 +113,14 @@ grunt.initConfig({
     vendor_fonts: {
       files: [
         // includes files within path
-        {expand: true, src: ['app/fonts/*'], flatten: true, dest: 'generated/fonts', filter: 'isFile'},
-        {expand: true, src: ['app/vendor/*'], flatten: true, dest: 'generated/vendor', filter: 'isFile'}
+        {expand: true, cwd: 'app/vendor/', src: ['**/*'],  dest: 'generated/vendor/'},
+        {expand: true, cwd: 'app/fonts/', src: ['**/*'], dest: 'generated/fonts/'}
       ]
     },
     php_html:{
       files:[
-      {expand: true, src: ['app/views/*.php'], flatten: true, dest: 'generated/views', filter: 'isFile'},
-      {expand: true, src: ['app/views/*.html'], flatten: true, dest: 'generated/views', filter: 'isFile'}
+      {expand: true, cwd:'app/views/',src: ['**/*.php'], dest: 'generated/views/'},
+      {expand: true, cwd:'app/views/',src: ['**/*.html'], dest: 'generated/views/'}
       ]
     }
   },
