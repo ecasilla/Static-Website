@@ -64,18 +64,49 @@ grunt.initConfig({
         ext: '.png'
         }]
       },
-      jpg:{
+    jpg:{
       options:{
-        porgressive:true,
+        progressive:true,
+        optimizationLevel:7
         },
         files:[{
         expand:true,
-        cwd: 'app/',
-        src:'app/images/**/.jpg',
+        cwd: 'app/images/',
+        src:  ["**/*.jpg"],
         dest:'generated/images',
         ext: '.jpg'
         }]
-      }
+      },
+    svgmin:{
+      options:{
+        optimizationLevel:7,
+        plugins: [
+            { removeViewBox: false },               // don't remove the viewbox atribute from the SVG
+            { removeUselessStrokeAndFill: false },  // don't remove Useless Strokes and Fills
+            { removeEmptyAttrs: false }             // don't remove Empty Attributes from the SVG
+         ]
+        },
+        files:[{
+        expand:true,
+        cwd: 'app/images/',
+        src:  ["**/*.svg"],
+        dest:'generated/images',
+        ext: '.min.svg'
+        }]
+      },
+    gif: {
+        options:{
+          optimizationLevel:7,
+          interlaced: true
+        },
+        files:[{
+        expand: true,
+        cwd: 'app/images/',
+        src: ['**/*.gif'],
+        dest:'generated/images',
+        ext: '.gif'
+        }]
+      },
     },
 
   copy: {
@@ -84,6 +115,12 @@ grunt.initConfig({
         // includes files within path
         {expand: true, src: ['app/fonts/*'], flatten: true, dest: 'generated/fonts', filter: 'isFile'},
         {expand: true, src: ['app/vendor/*'], flatten: true, dest: 'generated/vendor', filter: 'isFile'}
+      ]
+    },
+    php_html:{
+      files:[
+      {expand: true, src: ['app/views/*.php'], flatten: true, dest: 'generated/views', filter: 'isFile'},
+      {expand: true, src: ['app/views/*.html'], flatten: true, dest: 'generated/views', filter: 'isFile'}
       ]
     }
   },
@@ -120,7 +157,7 @@ grunt.initConfig({
     },
     copy:{
       files:  ['app/vendor/*','app/fonts/*'],
-      tasks:['copy']
+      tasks:['copy:vendor_fonts']
     }
   },
 

@@ -12,4 +12,3 @@ window.APP.index = {
     return x / y;
   }
 };
-
