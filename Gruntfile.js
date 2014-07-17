@@ -7,6 +7,7 @@ grunt.initConfig({
   jshint:{
    files:['app/scripts/*.js','tests/unit/*.js','tests/intergration/*.js'],
    options: {
+      jshintrc: '.jshintrc',
       reporter: require('jshint-stylish')
     }
   }, //jshint
@@ -178,6 +179,7 @@ grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-less');
 grunt.loadNpmTasks('grunt-contrib-jade');
+grunt.loadNpmTasks('grunt-ejs');
 grunt.loadNpmTasks('grunt-contrib-imagemin');
 grunt.loadNpmTasks('grunt-contrib-copy');
 
