@@ -1,3 +1,4 @@
+/*global $:false ,window:false,APP:false */
 ///THIS IS A TEST SPEC TO MAKE SURE THE TEST SUIT RUNS
 
 describe("app", function() {

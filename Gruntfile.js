@@ -20,24 +20,21 @@ grunt.initConfig({
     },
     production: {
       files: {
-        'generated/scripts/main.min.js' : ['app/scripts/*.js']
+        'dist/scripts/main.min.js' : ['app/scripts/*.js']
       }
     }
   },
 
 template: {
-  data: function (dest, src) {
-    console.log(arguments.length)
-    var data = src
-    data = src[0].split('.')[0] + '.json'
-      // Resolve file.json in the views/view folder
-    return grunt.file.readJSON(data);
-  },
     dev: {
       src: 'app/views/**/*.ejs',
-      dest: 'generated/views/',
-      variables:  {
-        //json: grunt.file.readJSON(data())
+      dest: 'dist/views/',
+      variables: function () {
+        console.log(grunt.task.current.fileSrc);
+        var dataobj = grunt.file.readJSON('app/views/home/home.json');
+        return{
+          data: dataobj
+        };
       }
     }
   },
@@ -57,7 +54,7 @@ template: {
             files: [ {
               cwd: "app/views",
               src: "**/*.jade",
-              dest: "generated/views/",
+              dest: "dist/views/",
               expand: true,
               ext: ".html"
             } ]
@@ -71,7 +68,7 @@ template: {
         cleancss: true
       },
       files:{
-        "./generated/styles/master.css": "./app/styles/*.less"
+        "./dist/styles/master.css": "./app/styles/*.less"
       }
     }
   },
@@ -84,7 +81,7 @@ template: {
         expand: true,
         cwd: 'app/images/',
         src: ['**/*.png'],
-        dest:'generated/images',
+        dest:'dist/images',
         ext: '.png'
         }]
       },
@@ -97,7 +94,7 @@ template: {
         expand:true,
         cwd: 'app/images/',
         src:  ["**/*.jpg"],
-        dest:'generated/images',
+        dest:'dist/images',
         ext: '.jpg'
         }]
       },
@@ -114,7 +111,7 @@ template: {
         expand:true,
         cwd: 'app/images/',
         src:  ["**/*.svg"],
-        dest:'generated/images',
+        dest:'dist/images',
         ext: '.min.svg'
         }]
       },
@@ -127,7 +124,7 @@ template: {
         expand: true,
         cwd: 'app/images/',
         src: ['**/*.gif'],
-        dest:'generated/images',
+        dest:'dist/images',
         ext: '.gif'
         }]
       },
@@ -137,14 +134,14 @@ template: {
     vendor_fonts: {
       files: [
         // includes files within path
-        {expand: true, cwd: 'app/vendor/', src: ['**/*'],  dest: 'generated/vendor/'},
-        {expand: true, cwd: 'app/fonts/', src: ['**/*'], dest: 'generated/fonts/'}
+        {expand: true, cwd: 'app/vendor/', src: ['**/*'],  dest: 'dist/vendor/'},
+        {expand: true, cwd: 'app/fonts/', src: ['**/*'], dest: 'dist/fonts/'}
       ]
     },
     php_html:{
       files:[
-      {expand: true, cwd:'app/views/',src: ['**/*.php'], dest: 'generated/views/'},
-      {expand: true, cwd:'app/views/',src: ['**/*.html'], dest: 'generated/views/'}
+      {expand: true, cwd:'app/views/',src: ['**/*.php'], dest: 'dist/views/'},
+      {expand: true, cwd:'app/views/',src: ['**/*.html'], dest: 'dist/views/'}
       ]
     }
   },

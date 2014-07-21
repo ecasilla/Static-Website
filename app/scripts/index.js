@@ -1,3 +1,5 @@
+/*global $:false ,window:false,APP:false */
+
 window.APP.index = {
   add: function (x,y) {
     return x + y;
