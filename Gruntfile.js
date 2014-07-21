@@ -25,11 +25,34 @@ grunt.initConfig({
     }
   },
 
+template: {
+  data: function (dest, src) {
+    console.log(arguments.length)
+    var data = src
+    data = src[0].split('.')[0] + '.json'
+      // Resolve file.json in the views/view folder
+    return grunt.file.readJSON(data);
+  },
+    dev: {
+      src: 'app/views/**/*.ejs',
+      dest: 'generated/views/',
+      variables:  {
+        //json: grunt.file.readJSON(data())
+      }
+    }
+  },
+
   jade: {
         compile: {
             options: {
                 client: false,
-                pretty: true
+                pretty: true,
+                data: function(dest, src) {
+                  var data = src
+                  data = src[0].split('.')[0] + '.json'
+                    // Resolve file.json in the views/view folder
+                  return grunt.file.readJSON(data);
+                }
             },
             files: [ {
               cwd: "app/views",
@@ -180,11 +203,14 @@ grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-less');
 grunt.loadNpmTasks('grunt-contrib-jade');
 grunt.loadNpmTasks('grunt-ejs');
+grunt.loadNpmTasks('grunt-consolidate');
+grunt.loadNpmTasks('grunt-templater');
 grunt.loadNpmTasks('grunt-contrib-imagemin');
 grunt.loadNpmTasks('grunt-contrib-copy');
 
 grunt.registerTask('default',['concurrent:target1'])
 grunt.registerTask('e2e',['concurrent:target2'])
+grunt.registerTask('testing',['template'])
 grunt.registerTask('prod',['jshint','imagemin','uglify','less:production','jade','copy'])
 
 }//grunt exports
