@@ -18,7 +18,7 @@ grunt.initConfig({
   browserify: {
       dev: {
         files: {
-          'dist/scripts/main.js': ['app/scripts/bootstrap.js'],
+          'dist/scripts/bundle.js': ['app/scripts/bootstrap.js'],
         },
         options: {
           debug:true
