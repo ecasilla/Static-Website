@@ -1,5 +1,6 @@
 'use strict';
 module.exports = function (grunt) {
+var uglifyify = require('uglifyify')
 
 //project Config
 grunt.initConfig({
@@ -15,14 +16,16 @@ grunt.initConfig({
   }, //jshint
 
   browserify: {
-      dist: {
+      dev: {
         files: {
           'app/scripts/main.js': ['app/scripts/bootstrap.js'],
-          'dist/scripts/main.js': ['app/scripts/bootstrap.js'],
+          //'dist/scripts/main.js': ['app/scripts/bootstrap.js'],
         },
         options: {
-          debug: true,
-          transform: ['uglifyify']
+          debug:true
+          // postBundleCB: function(err,src,next) {
+          //   console.log(src,next)
+          // }
         }
       }
     },
@@ -160,7 +163,7 @@ grunt.initConfig({
       },
     scripts:{
       files: ['app/scripts/*.js'],
-      tasks:['browserify','jsbeautifier']
+      tasks:['uglify','jsbeautifier','browserify']
     },
     copy:{
       files:  ['app/vendor/*','app/fonts/*','app/views/**/*'],
@@ -177,6 +180,7 @@ grunt.initConfig({
   }
 
 });//Grunt init
+
 
 grunt.loadNpmTasks('grunt-casperjs');
 grunt.loadNpmTasks('grunt-contrib-watch');
