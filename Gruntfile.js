@@ -163,7 +163,7 @@ grunt.initConfig({
       },
     scripts:{
       files: ['app/scripts/*.js'],
-      tasks:['uglify','jsbeautifier','browserify']
+      tasks:['jsbeautifier','browserify','uglify']
     },
     copy:{
       files:  ['app/vendor/*','app/fonts/*','app/views/**/*'],
