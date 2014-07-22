@@ -10,7 +10,7 @@ grunt.initConfig({
    files:['app/scripts/*.js','tests/unit/*.js','tests/intergration/*.js'],
    options: {
       jshintrc: '.jshintrc',
-      ignores: 'app/scripts/main.js',
+      ignores: 'app/scripts/bundle.js',
       reporter: require('jshint-stylish')
     }
   }, //jshint
@@ -19,6 +19,7 @@ grunt.initConfig({
       dev: {
         files: {
           'dist/scripts/bundle.js': ['app/scripts/bootstrap.js'],
+          'app/scripts/bundle.js': ['app/scripts/bootstrap.js']
         },
         options: {
           debug:true
@@ -35,13 +36,13 @@ grunt.initConfig({
     },
     production: {
       files: {
-        'dist/scripts/main.min.js' : ['app/scripts/*.js']
+        'dist/scripts/bundle.min.js' : ['app/scripts/*.js']
       }
     }
   },
 
   jsbeautifier: {
-      files: ["app/**/*.js","app/**/*.css"],
+      files: ["app/**/*.js","app/**/*.css","!app/scripts/bundle.*"],
       options: {
         jshintrc: '.jsbeautify'
       },
