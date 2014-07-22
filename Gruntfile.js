@@ -19,13 +19,10 @@ grunt.initConfig({
       dev: {
         files: {
           'app/scripts/main.js': ['app/scripts/bootstrap.js'],
-          //'dist/scripts/main.js': ['app/scripts/bootstrap.js'],
+          'dist/scripts/main.js': ['app/scripts/bootstrap.js'],
         },
         options: {
           debug:true
-          // postBundleCB: function(err,src,next) {
-          //   console.log(src,next)
-          // }
         }
       }
     },
