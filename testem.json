@@ -1,6 +1,6 @@
 {
   "launch_in_dev" : ["Chrome"],
-  "framework": "jasmine2",
+  "framework": "mocha",
   "src_files": [
     "app/vendor/*.js",
     "app/scripts/*.js",

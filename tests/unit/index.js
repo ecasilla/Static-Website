@@ -1,5 +1,6 @@
 /*global $:false ,window:false,APP:false */
 ///THIS IS A TEST SPEC TO MAKE SURE THE TEST SUIT RUNS
+var APP = require('./index')
 
 describe("app", function() {
 

@@ -1,6 +1,5 @@
 'use strict';
 module.exports = function (grunt) {
-var uglifyify = require('uglifyify')
 
 //project Config
 grunt.initConfig({
@@ -185,7 +184,6 @@ grunt.loadNpmTasks('grunt-concurrent');
 grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-less');
-grunt.loadNpmTasks('grunt-contrib-jade');
 grunt.loadNpmTasks('grunt-jsbeautifier');
 grunt.loadNpmTasks('grunt-browserify');
 grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -193,6 +191,6 @@ grunt.loadNpmTasks('grunt-contrib-copy');
 
 grunt.registerTask('default',['concurrent:target1'])
 grunt.registerTask('e2e',['concurrent:target2'])
-grunt.registerTask('prod',['jshint','imagemin','uglify','less:production','jade','copy'])
+grunt.registerTask('prod',['jshint','imagemin','uglify','less:production','copy'])
 
 }//grunt exports
