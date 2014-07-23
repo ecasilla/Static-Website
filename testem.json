@@ -13,7 +13,7 @@
     "test/helpers/*.js",
     "test/unit/*.js"
   ],
-   "before_tests": "grunt browserify",
+   "before_tests": "grunt test",
     "on_exit": "rm test/browserified.js"
 }
 
