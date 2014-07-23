@@ -1,7 +1,7 @@
 #Static Website Framework
 
 ##Dependencies && Tools Used
-Node
+Node  v0.10.28
 
 Grunt
 
@@ -15,7 +15,7 @@ Less
 
 Uglify
 
-Jade
+Browserify
 
 Testem
 
@@ -32,7 +32,9 @@ Testem
 `sudo npm install`
 
 
+*If you get phamtonJS errors because of npm use homebrew*
 
+**Please Dont forget to remove the .git folder once you clone**
 #Folder Strcuture
 Please copy the contents of this repo into a folder with your project name.
 
@@ -97,7 +99,7 @@ generated/scripts/.js
 generated/views/.html
 
 ####For vendor and fonts
-It doesnt do any compliation of the files just copys them into the generated directory
+It doesn't do any compliation of the files just copys them into the generated directory
 
 This is where your static files will live
 
