@@ -6,7 +6,7 @@ grunt.initConfig({
   pkg: grunt.file.readJSON('package.json'),
 
   jshint:{
-   files:['app/scripts/*.js','tests/unit/*.js','tests/intergration/*.js'],
+   files:['app/scripts/*.js','test/unit/*.js','test/intergration/*.js'],
    options: {
       jshintrc: '.jshintrc',
       ignores: 'app/scripts/bundle.js',
@@ -19,6 +19,14 @@ grunt.initConfig({
         files: {
           'dist/scripts/bundle.js': ['app/scripts/bootstrap.js'],
           'app/scripts/bundle.js': ['app/scripts/bootstrap.js']
+        },
+        options: {
+          debug:true
+        }
+      },
+      test: {
+        files: {
+          'test/browserified.js': ['test/unit/*.js'],
         },
         options: {
           debug:true
@@ -142,7 +150,7 @@ grunt.initConfig({
         parrallel: true
       }
     },
-    files: { src: ['tests/intergration/*.js']}
+    files: { src: ['test/intergration/*.js']}
   },
 
   watch:{
@@ -154,7 +162,7 @@ grunt.initConfig({
       tasks: ['less'],
     },
      jshint:{
-        files:['app/scripts/*.js','tests/unit/*.js','tests/intergration/*.js'],
+        files:['app/scripts/*.js','test/unit/*.js','test/intergration/*.js'],
         tasks: ['jshint']
       },
     scripts:{
@@ -190,6 +198,7 @@ grunt.loadNpmTasks('grunt-contrib-imagemin');
 grunt.loadNpmTasks('grunt-contrib-copy');
 
 grunt.registerTask('default',['concurrent:target1'])
+grunt.registerTask('test',['browserify:test'])
 grunt.registerTask('e2e',['concurrent:target2'])
 grunt.registerTask('prod',['jshint','imagemin','uglify','less:production','copy'])
 

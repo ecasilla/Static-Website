@@ -1,11 +1,19 @@
 {
-  "launch_in_dev" : ["Chrome"],
+  "launch_in_dev" : ["Mocha","Chrome"],
   "framework": "mocha",
+  "launchers": {
+    "Mocha": {
+      "command": "mocha test/browserified.js -R nyan -G"
+    }
+  },
+  "serve_files": [ "test/browserified.js" ],
   "src_files": [
     "app/vendor/*.js",
     "app/scripts/*.js",
-    "tests/helpers/*.js",
-    "tests/unit/*.js"
-  ]
+    "test/helpers/*.js",
+    "test/unit/*.js"
+  ],
+   "before_tests": "grunt browserify",
+    "on_exit": "rm test/browserified.js"
 }
 
