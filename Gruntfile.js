@@ -191,6 +191,24 @@ module.exports = function(grunt) {
             }
         },
 
+        plato: {
+          lint: {
+            options : {
+              jshint : grunt.file.readJSON('.jshintrc'),
+              dir: "reports",
+              title: grunt.file.readJSON('package.json').name,
+              complexity:{
+                minmi:true,
+                forin:true,
+                logicalor:false
+              }
+            },
+            files: {
+              'reports': ['app/scripts/**/*.js']
+            }
+          },
+        },
+
         mocha_istanbul: {
             coverage: {
                 src: 'test/unit',
@@ -274,7 +292,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['concurrent:target1'])
     grunt.registerTask('test', ['newer:browserify:test'])
-    grunt.registerTask('blah', ['copy:spec'])
+    grunt.registerTask('blah', ['plato'])
     grunt.registerTask('coverage', ['mocha_istanbul'])
     grunt.registerTask('e2e', ['concurrent:target2'])
     grunt.registerTask('prod', ['jshint', 'imagemin', 'uglify', 'less:production', 'copy'])
