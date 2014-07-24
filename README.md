@@ -1,5 +1,7 @@
 #Static Website Framework
 
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+
 ##Dependencies && Tools Used
 Node  v0.10.28
 
@@ -11,6 +13,8 @@ CasperJS
 
 JsHint
 
+JsBeautify
+
 Less
 
 Uglify
@@ -18,6 +22,12 @@ Uglify
 Browserify
 
 Testem
+
+Istanbul
+
+Mocha
+
+Less
 
 #Setup
 
@@ -28,6 +38,8 @@ Testem
 `sudo npm install -g grunt-cli`
 
 `sudo npm install -g testem`
+
+`sudo npm install -g istanbul`
 
 `sudo npm install`
 
@@ -103,14 +115,35 @@ It doesn't do any compliation of the files just copys them into the generated di
 
 This is where your static files will live
 
-###grunt e2e
+###Grunt e2e
 `grunt e2e`
 
 This task is made to run you intergration test suite using casperjs
-###grunt prod
+
+###Grunt prod
 `grunt prod`
 
 This task does everything the dev task does exepcts it also minifys your images
+
+**As a side not both grunt test and grunt coverage should NOT!! be used through the command line use TESTEM instead**
+
+###Grunt test
+`grunt test`
+
+This task runs browserify in the current process or you can use testem/npm test to have testem run a sub process. 
+
+The point of this command is to run browserify on you test dependices and output a browserified.js file which contains all your specs and src files to run your test suite against
+
+###Grunt coverage
+`grunt coverage`
+
+This task runs the mocha_istanbul task in the grunt config..
+It will output a coverage folder with all your coverage reports for the  JS files you have in your project.
+
+##JsBeautify
+`.jsbeautify`
+
+This file takes all your .js/css files and adds some predefinded styling conventions to the src files.. He helps keep style and continuity within a project of its src file and helps create a convention on how the code should be structured 
 
 ##JsHint
 
