@@ -49,7 +49,7 @@ grunt.initConfig({
   },
 
   jsbeautifier: {
-      files: ["app/**/*.js","app/**/*.css","!app/scripts/bundle.*"],
+      files: ["app/**/*.js","app/**/*.css","Gruntfile.js", "!app/scripts/bundle.*"],
       options: {
         jshintrc: '.jsbeautify'
       },
@@ -142,7 +142,22 @@ grunt.initConfig({
       ]
     }
   },
-
+  
+  mocha_istanbul: {
+    coverage: {
+        src: 'test/unit', 
+    options: {
+      mask: '*.js',
+      instrument: ['test'],
+      coverageFolder: "coverage",
+      reporter: "html-cov",
+      ui:'bdd',
+      root: 'app/scripts',
+      print: 'summary',
+      excludes:['node_modules','dist']
+      }
+    }
+  },
 
   casperjs: {
     options: {
@@ -186,19 +201,17 @@ grunt.initConfig({
 });//Grunt init
 
 
-grunt.loadNpmTasks('grunt-casperjs');
-grunt.loadNpmTasks('grunt-contrib-watch');
-grunt.loadNpmTasks('grunt-concurrent');
-grunt.loadNpmTasks('grunt-contrib-jshint');
-grunt.loadNpmTasks('grunt-contrib-uglify');
-grunt.loadNpmTasks('grunt-contrib-less');
-grunt.loadNpmTasks('grunt-jsbeautifier');
-grunt.loadNpmTasks('grunt-browserify');
-grunt.loadNpmTasks('grunt-contrib-imagemin');
-grunt.loadNpmTasks('grunt-contrib-copy');
+
+// Loading dependencies
+for (var key in grunt.file.readJSON("package.json").devDependencies) {
+    if (key.indexOf("grunt") === 0 && key !== "grunt") {
+        grunt.loadNpmTasks(key);
+    }
+}
 
 grunt.registerTask('default',['concurrent:target1'])
 grunt.registerTask('test',['browserify:test'])
+grunt.registerTask('coverage',['mocha_istanbul'])
 grunt.registerTask('e2e',['concurrent:target2'])
 grunt.registerTask('prod',['jshint','imagemin','uglify','less:production','copy'])
 

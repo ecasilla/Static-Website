@@ -1,9 +1,13 @@
 {
   "launch_in_dev" : ["Mocha","Chrome"],
+  "launch_in_ci": ["Coverage","Chrome","Firefox","Safari","Mocha"],
   "framework": "mocha",
   "launchers": {
     "Mocha": {
-      "command": "mocha test/browserified.js -R nyan -G"
+      "command": "mocha test/browserified.js -c -s 1000 -R spec -u bdd -t 3000 --inline-diffs "
+    },
+    "Coverage" : {
+      "command": "grunt coverage"
     }
   },
   "serve_files": [ "test/browserified.js" ],

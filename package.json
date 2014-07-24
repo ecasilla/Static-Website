@@ -3,11 +3,22 @@
   "version": "0.0.0",
   "description": "this is a framework for building websites",
   "main": "Gruntfile.js",
+  "engines": {
+    "node": ">=0.10.28"
+  },
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "testem"
+    "test": "testem",
+    "ci": "testem ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/dmgdirectv/template_static-website_generator"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/dmgdirectv/template_static-website_generator/issues"
   },
   "author": "Ernie Casilla",
   "license": "ISC",
@@ -23,8 +34,12 @@
     "grunt-contrib-uglify": "^0.5.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-jsbeautifier": "^0.2.7",
+    "grunt-mocha-istanbul": "^1.5.0",
     "grunt-newer": "^0.7.0",
+    "grunt-plato": "^1.1.0",
+    "istanbul": "^0.3.0",
     "jshint-stylish": "^0.2.0",
+    "mocha": "^1.21.0",
     "testem": "^0.6.16"
   }
 }
