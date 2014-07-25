@@ -221,7 +221,7 @@ module.exports = function(grunt) {
                     },
                     mask: '*.js',
                     instrument: ['test'],
-                    coverageFolder: "coverage",
+                    coverageFolder: "reports/coverage",
                     reporter: "html-cov",
                     ui: 'bdd',
                     root: 'app/scripts/',
@@ -292,8 +292,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['concurrent:target1'])
     grunt.registerTask('test', ['newer:browserify:test'])
-    grunt.registerTask('blah', ['plato'])
-    grunt.registerTask('coverage', ['mocha_istanbul'])
+    grunt.registerTask('coverage', ['mocha_istanbul',"plato"])
     grunt.registerTask('e2e', ['concurrent:target2'])
     grunt.registerTask('prod', ['jshint', 'imagemin', 'uglify', 'less:production', 'copy'])
 
