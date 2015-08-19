@@ -1,6 +1,8 @@
 .DS_Store
 node_modules/*
 bower_components/
+app/vendor/
+dist/
 coverage
 reports
 npm-debug.log
