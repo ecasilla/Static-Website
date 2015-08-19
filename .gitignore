@@ -6,3 +6,4 @@ dist/
 coverage
 reports
 npm-debug.log
+test/browserified.js

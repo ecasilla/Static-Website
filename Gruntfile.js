@@ -169,16 +169,23 @@ module.exports = function(grunt) {
                     src: ['**/**.js', '!bundle.js'],
                     dest: 'test/unit/',
                     filter: function(filepath) {
-                    console.log(filepath,"filepath");
                         var path = require('path');
+                        var spec = filepath.split(path.sep)
+                            .slice(2).join(path.sep)
+                            .split('.').slice(0, 1)
+                            .concat(['_spec.js']).join('');
+
                         var dest = path.join(
                             grunt.config('copy.spec.dest'),
-                            filepath.split(path.sep).slice(2).join(path.sep)
+                            spec
                         );
                         return !(grunt.file.exists(dest));
                     },
                     rename: function(dest, src) {
-                        var src_spec = src.split('.')[0] + "_spec.js"
+                        var src_spec = src.split('.')
+                            .slice(0, 1)
+                            .concat(["_spec.js"])
+                            .join('');
                         return dest + src_spec;
                     },
                     options: {
