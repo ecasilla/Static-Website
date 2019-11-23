@@ -1,8 +1,8 @@
-#Static Website Framework
+# Static Website Framework
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-##Dependencies && Tools Used
+## Dependencies && Tools Used
 Node  v0.10.28
 
 Grunt
@@ -29,7 +29,7 @@ Mocha
 
 Less
 
-#Setup
+# Setup
 
 `npm cache clean `
 
@@ -69,7 +69,7 @@ Project --root
   * intergration --casperJS and broswer testing
   * unit --all unit tests for your scripts files
 
-##Testem
+## Testem
 [Testem-repo](https://github.com/airportyh/testem)
 
 In order to run the test runner for your unit test use the testem command
@@ -87,11 +87,11 @@ All configuration for the test runner is in
 
 you can copy http://localhost:7357 url and watch your test run in any browser
 
-##Grunt
+## Grunt
 
 Theres 3 grunt command you can issue
 
-###grunt
+### grunt
 `grunt`
 
 This command starts up a watch task which will watch
@@ -110,42 +110,42 @@ generated/styles/.css
 generated/scripts/.js
 generated/views/.html
 
-####For vendor and fonts
+#### For vendor and fonts
 It doesn't do any compliation of the files just copys them into the generated directory
 
 This is where your static files will live
 
-###Grunt e2e
+### Grunt e2e
 `grunt e2e`
 
 This task is made to run you intergration test suite using casperjs
 
-###Grunt prod
+### Grunt prod
 `grunt prod`
 
 This task does everything the dev task does exepcts it also minifys your images
 
 **As a side not both grunt test and grunt coverage should NOT!! be used through the command line use TESTEM instead**
 
-###Grunt test
+### Grunt test
 `grunt test`
 
 This task runs browserify in the current process or you can use testem/npm test to have testem run a sub process. 
 
 The point of this command is to run browserify on you test dependices and output a browserified.js file which contains all your specs and src files to run your test suite against
 
-###Grunt coverage
+### Grunt coverage
 `grunt coverage`
 
 This task runs the mocha_istanbul task in the grunt config..
 It will output a coverage folder with all your coverage reports for the  JS files you have in your project.
 
-##JsBeautify
+## JsBeautify
 `.jsbeautify`
 
 This file takes all your .js/css files and adds some predefinded styling conventions to the src files.. He helps keep style and continuity within a project of its src file and helps create a convention on how the code should be structured 
 
-##JsHint
+## JsHint
 
 `.jshintrc`
 
